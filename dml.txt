@@ -1,0 +1,41 @@
+
+1.Create a table students with the following columns: sid, name, email, collegename.
+
+create table student(sid int,name varchar(50),email varchar(50),collegename varchar(50));
+
+2.Add a new column age to the students table.
+
+alter table student add column age int;
+
+3.Insert 5 student records into the table.
+
+insert into student values(1,"harika","harika@gmail.com","mvgr"),(2,"lohith","lohith@gmail.com","vignan"),(3,"srikanth","srikanth@gmail.com","chaitanya"),(4,"pandu","pandu@gmail.com","vignan"),(5,"hari","hari@gmail.com","sitam");
+
+
+4.Update the collegename of a student whose sid = 3.
+
+update student set collegename="satya" where sid=3;
+
+5.Delete the student record whose sid = 5.
+
+delete from student where sid=5;
+
+6.Display all records from the students table.
+
+select * from students;
+
+7.Display only name and email of students from college "ABC College".
+
+select name,email from student where collegename="sitam";
+
+8.Change the datatype of email column to VARCHAR(100).
+
+alter table student modify column email varchar(100);
+
+9.Rename the column collegename to college_name.
+
+alter table student rename column collegename to college_name;
+
+10.Insert multiple rows in a single query.
+
+insert into student values(1,"harika","harika@gmail.com","mvgr"),(2,"lohith","lohith@gmail.com","vignan");
