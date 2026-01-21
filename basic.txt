@@ -1,0 +1,81 @@
+1. History of SQL
+SQL (Structured Query Language) was developed by IBM in the 1970s.
+It was later standardized by ANSI and ISO.
+SQL is used to store, retrieve, update, and manage data in databases.
+
+2. Database
+A database is an organized collection of data stored in electronic form.
+It allows easy storage, retrieval, and management of large amounts of data.
+
+Example: Student records, bank details, employee data.
+
+3. Data
+Data is raw facts and figures that have no meaning by themselves.
+When data is processed, it becomes information.
+
+Example:
+Data → 56, Harika, CSE
+Information → Student Harika scored 56 marks in CSE.
+
+4. DBMS (Database Management System)
+DBMS is software used to create, store, manage, and retrieve data from databases.
+It acts as an interface between the user and the database.
+
+Examples: MySQL, Oracle, SQL Server.
+
+5. Drawbacks of DBMS
+Data redundancy (duplicate data)
+
+Data inconsistency
+
+Poor security
+
+Difficult data relationships
+
+Limited multi-user support
+
+6. RDBMS (Relational Database Management System)
+RDBMS is an advanced version of DBMS.
+Data is stored in the form of tables (rows and columns) and related using keys.
+
+Examples: MySQL, Oracle, PostgreSQL.
+
+7. Table
+A table is a collection of data arranged in rows and columns.
+Each table stores data about a single entity.
+
+Example: Student table.
+
+8. Row (Record)
+A row represents a single record in a table.
+Each row contains complete information about one item.
+
+Example: One student’s details.
+
+9. Column (Attribute)
+A column represents a specific field in a table.
+Each column contains the same type of data.
+
+Example: name, age, marks.
+
+10. Field / Fieldset
+Field: A single piece of data in a table (intersection of row and column).
+
+Fieldset: A collection of related fields.
+
+11. SQL
+SQL stands for Structured Query Language.
+It is used to communicate with databases to perform operations like insert, update, delete, and retrieve data.
+
+SQL is not a database, it is a language.
+
+12. MySQL
+MySQL is an open-source RDBMS developed by Oracle Corporation.
+It uses SQL language and is widely used for web applications.
+
+13. Difference between SQL and MySQL
+SQL	                   MySQL
+SQL is a language	MySQL is a database software
+Used to write queries	Used to store and manage data
+Standard language	Implementation of SQL
+Cannot store data	Can store data
