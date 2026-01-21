@@ -1,0 +1,116 @@
+Question 1: Create a table students with the following constraints:
+•	id → AUTO_INCREMENT
+•	name → NOT NULL
+•	email → UNIQUE
+•	marks → CHECK (0–100)
+•	status → DEFAULT ‘active’
+Answer:
+CREATE TABLE students (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  email VARCHAR(100) UNIQUE,
+  marks INT CHECK (marks BETWEEN 0 AND 100),
+  status VARCHAR(20) DEFAULT 'active'
+);
+
+Question 2: Create a table products with constraints.
+Answer:
+CREATE TABLE products (
+  product_id INT AUTO_INCREMENT PRIMARY KEY,
+  product_name VARCHAR(50) NOT NULL UNIQUE,
+  price INT CHECK (price > 0),
+  stock INT DEFAULT 10
+);
+
+Question 3: Create a table employees with salary constraints.
+Answer:
+CREATE TABLE employees (
+  emp_no INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  email VARCHAR(100) UNIQUE,
+  salary INT CHECK (salary BETWEEN 10000 AND 50000),
+  department VARCHAR(30) DEFAULT 'IT'
+);
+
+Question 4: Insert records into students table and explain which one fails.
+INSERT INTO students (name,email,marks)
+VALUES ('Ravi','ravi@gmail.com',85);
+
+INSERT INTO students (name,email,marks)
+VALUES ('Asha','asha@gmail.com',110);
+Answer:
+•	Ravi record is inserted successfully.
+•	Asha record fails because marks (110) violate the CHECK constraint.
+
+Question 5: Insert employees and identify constraint violations.
+INSERT INTO employees (name,email,salary)
+VALUES ('John','john@gmail.com',30000);
+
+INSERT INTO employees (name,email,salary)
+VALUES ('Mary','john@gmail.com',25000);
+
+INSERT INTO employees (name,email,salary)
+VALUES ('Alex','alex@gmail.com',9000);
+Answer:
+•	John → Inserted successfully
+•	Mary → Fails due to UNIQUE email constraint
+•	Alex → Fails due to salary CHECK constraint
+
+Question 6: Insert a product using DEFAULT and AUTO_INCREMENT.
+INSERT INTO products (product_name,price)
+VALUES ('Ball',150);
+Answer:
+•	product_id → AUTO_INCREMENT value
+•	stock → Default value (10)
+
+Question 7: Write a query to select valid students.
+Answer:
+SELECT * FROM students
+WHERE marks BETWEEN 0 AND 100
+AND status = 'active';
+
+Question 8: Update student marks with constraints.
+Answer:
+UPDATE students
+SET marks = marks + 5
+WHERE marks < 90;
+Explanation: If marks exceed 100 after update, the CHECK constraint is violated.
+
+Question 9: Create users table with multiple constraints.
+Answer:
+CREATE TABLE users (
+  user_id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  email VARCHAR(100) UNIQUE CHECK (email LIKE '%@gmail.com'),
+  signup_status VARCHAR(20) DEFAULT 'pending',
+  age INT CHECK (age BETWEEN 18 AND 60)
+);
+
+Question 10: Insert users and identify errors.
+INSERT INTO users (username,email,age)
+VALUES ('user1','user1@gmail.com',17);
+
+INSERT INTO users (username,email,age)
+VALUES ('user2','abc@yahoo.com',25);
+
+INSERT INTO users (username,email,age)
+VALUES ('user3','user3@gmail.com',30);
+Answer:
+•	user1 → Fails (age < 18)
+•	user2 → Fails (email not Gmail)
+•	user3 → Inserted successfully
+
+Question 11: Insert records with multiple constraints in students table.
+INSERT INTO students (name,email,marks)
+VALUES (NULL,'test@gmail.com',90);
+
+INSERT INTO students (name,email,marks)
+VALUES ('Sam','sam@gmail.com',105);
+
+INSERT INTO students (name,email,marks)
+VALUES ('Lina','lina@gmail.com',80);
+Answer:
+•	First record → Fails (NOT NULL constraint)
+•	Second record → Fails (CHECK constraint)
+•	Third record → Inserted successfully
+
