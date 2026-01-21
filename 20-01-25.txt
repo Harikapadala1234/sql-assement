@@ -1,0 +1,144 @@
+1.Write a query to create the student_marks table.
+
+
+CREATE TABLE student_marks (
+  id INT,
+  name VARCHAR(20),
+  sql_marks INT,
+  java_marks INT
+);
+
+2.Write a query to add a column total_marks.
+
+ALTER TABLE student_marks ADD COLUMN total_marks INT;
+
+3.Write a query to rename column student_name to name
+
+ALTER TABLE student_marks RENAME COLUMN name TO student_name;
+ALTER TABLE student_marks RENAME COLUMN student_name TO name;
+
+4.Write a query to change the datatype of java_marks to INTEGER.
+
+ALTER TABLE student_marks MODIFY COLUMN java_marks DOUBLE;
+ALTER TABLE student_marks MODIFY COLUMN java_marks INT;
+
+5.Write a query to drop the column total_marks.
+
+ALTER TABLE student_marks DROP COLUMN total_marks;
+
+DESC student_marks;
+
+6.Insert 5 student records into the table.
+
+INSERT INTO student_marks VALUES
+(1,'harika',56,70),
+(2,'divya',45,68),
+(3,'banu',78,89),
+(4,'srija',68,45),
+(5,'vimala',67,89);
+
+7.Increase SQL marks by 5 for all students.
+
+SELECT *, sql_marks+5 AS bonus FROM student_marks;
+
+8.Update Java marks to 60 where SQL marks are less than 50.
+
+UPDATE student_marks SET java_marks=60 WHERE sql_marks<50;
+
+SELECT * FROM student_marks;
+
+INSERT INTO student_marks VALUES (6,'apple',NULL,NULL);
+
+9. Set SQL marks to 0 where SQL marks are NULL.
+
+UPDATE student_marks SET sql_marks=0 WHERE sql_marks IS  NULL;
+
+SELECT * FROM student_marks;
+
+INSERT INTO student_marks VALUES (7,'rani',67,30);
+
+10.Delete students whose Java marks are less than 35.
+
+DELETE FROM student_marks WHERE java_marks<35;
+
+11.Display all student records.
+
+SELECT * FROM student_marks;
+
+12.Display students who scored more than 70 in SQL.
+
+SELECT * FROM student_marks WHERE sql_marks>70;
+
+13.Display students who scored Java > 60 AND SQL > 60.
+
+SELECT * FROM student_marks WHERE sql_marks>60 AND java_marks>60;
+
+14.Display students who scored Java BETWEEN 50 AND 80.
+
+SELECT * FROM student_marks WHERE java_marks BETWEEN 50 AND 80;
+
+INSERT INTO student_marks VALUES (7,'rani',56,78);
+
+15.Display students whose name starts with ‘R’.
+
+SELECT * FROM student_marks WHERE name LIKE '%r';
+
+SELECT * FROM student_marks WHERE name LIKE 'r%';
+
+16.Display students whose SQL marks are NOT NULL.
+
+SELECT * FROM student_marks WHERE sql_marks IS NOT NULL;
+
+17.Display students whose Java marks are 60, 70, or 80.
+
+SELECT * FROM student_marks WHERE java_marks IN (60,70,80);
+
+18.Write a query to start a transaction.
+
+START TRANSACTION;
+
+19.Update SQL marks by adding 10 for all students.
+
+SELECT *, sql_marks+10 AS bonus FROM student_marks;
+
+
+INSERT INTO student_marks VALUES (8,'kannaya',45,89);
+
+20.Write a query to SAVEPOINT named bonus_added.
+
+SAVEPOINT bonus_added;
+
+21.Delete students whose SQL marks are less than 40.
+
+DELETE FROM student_marks WHERE sql_marks<40;
+
+22.ROLLBACK to bonus_added.
+
+ROLLBACK TO bonus_added;
+
+23.COMMIT the transaction.
+
+COMMIT;
+
+SELECT * FROM student_marks;
+
+27.Display student name and total marks (java + sql).
+
+select name, (java_marks + sql_marks) as total_marks from student_marks;
+
+
+28.Display students whose SQL marks % 10 = 0.
+
+select * from student_marks where sql_marks % 10 = 0;
+select * from student_marks where mod(sql_marks,10) = 0;
+
+
+29.Increase Java marks by 5 where Java marks are between 60 and 75. 
+
+update student_marks
+set java_marks = java_marks+5 where java_marks between 60 and 75;
+
+
+30.Delete students whose SQL marks are not equal to Java marks 
+
+delete from student_marks where sql_marks != java_marks;
