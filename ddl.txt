@@ -1,0 +1,19 @@
+CREATE DATABASE college;
+
+CREATE TABLE students (
+  id INT,
+  name VARCHAR(30),
+  age INT
+);
+
+ALTER TABLE students ADD email VARCHAR(50);
+
+ALTER TABLE students RENAME TO student_details;
+
+DROP TABLE employees;
+
+ALTER TABLE student_details MODIFY marks FLOAT;
+
+ALTER TABLE student_details MODIFY age INT FIRST;
+
+DROP DATABASE school;
